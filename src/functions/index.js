@@ -25,7 +25,7 @@ async function Auth(ctx, next) {
     });
 
     await ctx.replyWithHTML(
-      `Assalom aleykum  <b>${user?.first_name || user?.last_name}</b>👋`
+      `Assalom alaykum  <b>${user?.first_name || user?.last_name}</b>👋`
     );
 
     let text = `#new_user\n\nFirst name: ${

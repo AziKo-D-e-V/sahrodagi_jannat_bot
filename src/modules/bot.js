@@ -116,9 +116,7 @@ bot.on("message", async (ctx, next) => {
         });
       } else {
         try {
-          await ctx.api.sendMessage(result.user_id, response, {
-            reply_to_message_id: result.message_id,
-          });
+          await ctx.api.sendMessage(result.user_id, response);
 
           await ctx.reply("Xabar jo'natildi ✅✅✅", {
             message_thread_id: config.GROUP.MESSAGESS_THREAD_ID,
@@ -153,7 +151,7 @@ bot.on("message", async (ctx, next) => {
     ) {
       const data = ctx.message.reply_to_message?.forward_date;
 
-      const result = await adminMessageModel.findOne({ forward_date: data });
+      const result = await messageModel.findOne({ forward_date: data });
 
       const response = `👮🏻‍♂️Admin:\n\n${ctx.message.text}`;
       try {
